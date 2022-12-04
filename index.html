@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content, body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+
+    #content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #inputs {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: aquamarine;
+      padding: 20px;
+      border-radius: 10px;
+      min-width: 50%;
+    }
+
+    #graph-container {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    #functions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: black; 
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    #results {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      color: black; 
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .text {
+      font-size: 1.17em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+		You need to enable JavaScript to run this app.
+	</noscript>
+	<div id="content">
+    <div id="inputs">
+      <div>
+        <label for="a">A:</label>
+        <input type="number" id="a" name="a" value="1">
+      </div>
+      <div>
+        <label for="b">B:</label>
+        <input type="number" id="b" name="b" value="0">
+      </div>
+      <div>
+        <label for="c">C:</label>
+        <input type="number" id="c" name="c" value="0">
+      </div>
+    </div>
+    <div id="graph-container">
+      <div id="graph"></div>
+    </div>
+    <div id="results"></div>
+    <div id="functions"></div>
+  </div>
+  <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
