@@ -31,10 +31,13 @@ const setFunction = (fn, p, q, a) => {
 
 const calculateFunction = (a, b, c) => {
   if (a === 0) {
-    FUNCTIONS_CONTAINER.innerHTML = "Funkcja nie jest kwadratowa";
+    RESULTS_CONTAINER.innerHTML = "";
+    FUNCTIONS_CONTAINER.innerHTML =
+      "Funkcja nie jest kwadratowa. Funkcja liniowa";
 
+    // funkcja liniowa (ax + b)
     return {
-      f: "0",
+      f: `${b}x + ${c}`,
       p: 0,
       q: 0,
       delta: 0,
@@ -60,7 +63,6 @@ const calculateFunction = (a, b, c) => {
     zeros.push(x0);
   }
 
-  // write out the possible formulas of the quadratic function
   const f = `${a}x^2 ${b < 0 ? "-" : "+"} ${Math.abs(b)}x ${
     c < 0 ? "-" : "+"
   } ${Math.abs(c)}`;
@@ -69,6 +71,7 @@ const calculateFunction = (a, b, c) => {
     q < 0 ? "-" : "+"
   } ${Math.abs(q)}`;
 
+  // jeśli mamy dwa miejsca zerowe to możemy zapisać funkcję w postaci iloczynowej
   const f_x1x2 =
     zeros.length === 2
       ? `${a}(x ${zeros[0] < 0 ? "+" : "-"} ${Math.abs(zeros[0])})(x ${
@@ -112,7 +115,7 @@ const onInputChange = () => {
   const { f, p, q, delta, zeros } = calculateFunction(a, b, c);
 
   setFunction(f, p, q, a);
-  setResults(delta, zeros);
+  a != 0 && setResults(delta, zeros);
 };
 
 A_INPUT.addEventListener("input", onInputChange);
